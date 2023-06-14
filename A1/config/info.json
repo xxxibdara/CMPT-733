@@ -1,0 +1,49 @@
+{
+    "version": 1,
+    "request": {
+        "url": "https://api.stackexchange.com/2.3/info",
+        "method": "GET",
+        "params": {
+            "site": true,
+            "term": false,
+            "key":true
+        },
+        "pagination": {
+            "type": "page",
+            "pageKey": "page",
+            "limitKey": "pagesize",
+            "maxCount": 50
+        },
+        "authorization": {
+            "type": "QueryParam",
+            "keyParam": "access_token"
+            
+        },
+        "search":{
+            "key": "term"
+        }
+    },
+    "response": {
+        "ctype": "application/json",
+        "tablePath": "$.items[*]",
+        "schema": {
+            "total_users": {
+                "target": "$.total_users",
+                "type": "int"
+            },
+            "total_unanswered":{
+                "target":"$.total_unanswered",
+                "type":"int"
+            },
+            "total_questions":{
+                "target":"$.total_questions",
+                "type":"int"
+            },
+            "api_revision":{
+                "target":"$.api_revision",
+                "type":"string"
+            }
+        },
+        "orient": "records"
+    }
+}

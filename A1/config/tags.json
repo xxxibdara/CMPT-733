@@ -1,0 +1,36 @@
+{
+    "version": 1,
+    "request": {
+        "url": "https://api.stackexchange.com/2.3/tags",
+        "method": "GET",
+        "params": {
+            "site": true,
+            "key": false ,          
+            "order":false,
+            "sort":false
+        },
+        "pagination": {
+            "type": "page",
+            "pageKey": "page",
+            "limitKey": "pagesize",
+            "maxCount": 50
+        },
+        "authorization": {
+            "type": "QueryParam",
+            "keyParam": "access_token"
+            
+        }
+    },
+    
+    "response": {
+        "ctype": "application/json",
+        "tablePath": "$.items[*]",
+        "schema": {
+            "name": {
+                "target": "$.name",
+                "type": "string"
+            }
+        },
+        "orient": "records"
+    }
+}

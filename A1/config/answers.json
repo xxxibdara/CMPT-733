@@ -1,0 +1,64 @@
+{
+    "version": 1,
+    "request": {
+        "url": "https://api.stackexchange.com/2.3/answers",
+        "method": "GET",
+        "params": {
+            "site": "stackoverflow"
+        },
+        "pagination": {
+            "type": "page",
+            "pageKey": "page",
+            "limitKey": "pagesize",
+            "maxCount": 50
+        }
+    },
+    
+    "response": {
+        "ctype": "application/json",
+        "tablePath": "$.items[*]",
+        "schema": {
+            "owner_reputation": {
+                "target": "$.owner.reputation",
+                "type": "int"
+            },
+            "owner_user_id": {
+                "target": "$.owner.user_id",
+                "type": "int"
+            },
+            "is_accepted": {
+                "target": "$.is_accepted",
+                "type": "boolean"
+            },
+            "score": {
+                "target": "$.score",
+                "type": "int"
+            },
+            "last_activity_date": {
+                "target": "$.last_activity_date",
+                "type": "int"
+            },
+            "last_edit_date": {
+                "target": "$.last_edit_date",
+                "type": "int"
+            },
+            "creation_date": {
+                "target": "$.creation_date",
+                "type": "int"
+            },
+            "answer_id": {
+                "target": "$.answer_id",
+                "type": "int"
+            },
+            "question_id": {
+                "target": "$.question_id",
+                "type": "int"
+            },
+            "content_license": {
+                "target": "$.content_license",
+                "type": "string"
+            }
+        },
+        "orient": "records"
+    }
+}

@@ -1,0 +1,10 @@
+{
+    "tables": [
+        "answers",
+        "questions",
+        "users",
+        "comments",
+        "search",
+        "tags"
+    ]
+}
